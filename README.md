@@ -1,6 +1,14 @@
-# leakDB_deploy_api
-water pipeline layout components 
-| First Header  | Second Header |
+# Water pipeline layout components 
+
+To serve request to display for widgets
+
+
+| Components    | Endpoint      |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| pipes         | /pipes        |
+| Junctions     | /junctions    |
+| Reservoirs    | /reservoirs   |
+| Coordinates   | /coordinates  |
+| Backdrop      | /backdrop     |
+| Reactions     | /reactions    |
+| Energy        | /energy       |
