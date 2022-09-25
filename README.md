@@ -1,6 +1,6 @@
 # Water pipeline layout components 
 
-To serve request to display for widgets
+https://group2api.azurewebsites.net/ {component}
 
 
 | Components    | Endpoint      |
