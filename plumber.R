@@ -71,7 +71,17 @@ function(){
 }
 
 
+#* @filter cors
+cors <- function(res) {
+  res$setHeader("Access-Control-Allow-Origin", "*") # Or whatever
+  plumber::forward()
+}
 
+#* @preempt cors
+#* @get /myroute
+myRoute <- function() {
+  # Do some CORS requests!
+}
 
 
 
