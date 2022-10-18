@@ -17,7 +17,7 @@ n1 <- read.inp("Hanoi_CMH_Scenario-1.inp")
 #' @filter cors
 cors <- function(req,res)
 {
-  res$setHeader("Access-Control-Allow-Origin","0.0.0.0,10.11.1.10")
+  res$setHeader("Access-Control-Allow-Origin","*")
   if(req$REQUEST_METHOD == "OPTIONS")
   {
     res$setHeader("Access-Control-Allow-Origin","POST")
@@ -31,15 +31,9 @@ cors <- function(req,res)
   }
 }
 
-#* @filter cors
-cors <- function(res) {
-  res$setHeader("Access-Control-Allow-Origin", "*")
-  plumber::forward()
-}
 
 
 #* @apiTitle Water Pipes API
-#* #* @preempt cors
 #* @apiDescription Components of the pipes include material roughness and diameter 
 #* @get /pipes
 function() {
@@ -97,11 +91,7 @@ function(){
 }
 
 
-#* @filter cors
-cors <- function(res) {
-  res$setHeader("Access-Control-Allow-Origin", "*") # Or whatever
-  plumber::forward()
-}
+
 
 #* @preempt cors
 #* @get /myroute
