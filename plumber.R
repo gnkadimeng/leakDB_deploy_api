@@ -13,7 +13,33 @@ library(tidyr)
 
 n1 <- read.inp("Hanoi_CMH_Scenario-1.inp")
 
+# Enable CORS Filtering
+#' @filter cors
+cors <- function(req,res)
+{
+  res$setHeader("Access-Control-Allow-Origin","0.0.0.0,10.11.1.10")
+  if(req$REQUEST_METHOD == "OPTIONS")
+  {
+    res$setHeader("Access-Control-Allow-Origin","POST")
+    res$setHeader("Access-Control-Allow-Headers",req$HTTP_ACCESS_CONTROL_REQUEST_HEADERS)
+    res$status <- 200
+    return (list())
+  }
+  else
+  {
+    plumber::forward()
+  }
+}
+
+#* @filter cors
+cors <- function(res) {
+  res$setHeader("Access-Control-Allow-Origin", "*")
+  plumber::forward()
+}
+
+
 #* @apiTitle Water Pipes API
+#* #* @preempt cors
 #* @apiDescription Components of the pipes include material roughness and diameter 
 #* @get /pipes
 function() {
